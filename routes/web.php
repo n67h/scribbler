@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NotesController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Note;
 use Illuminate\Support\Facades\Route;
@@ -16,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $note = Note::first();
-    return $note;
-    // return view('welcome');
+    return view('welcome');
 });
+
+Route::get('/notes/{note}', [NotesController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
