@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Note') }}</div>
+                <div class="card-header">{{ __('Note') }} {{$note->id}}</div>
 
                 <div class="card-body">
                     
@@ -24,7 +24,23 @@
                             </div>
                         </div>
 
-                        
+                        <form method="post" action="{{route('notes.destroy', $note->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <div class="row">
+                                <div class="col-md-4">
+
+                                </div>
+
+                                <div class="col-md-4">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </div>
+
+                                <div class="col-md-4">
+                                    
+                                </div>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
